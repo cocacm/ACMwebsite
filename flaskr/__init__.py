@@ -4,6 +4,7 @@ also signals to python that flaskr/ is a package
 """
 import os
 from flask import Flask
+from flask import render_template
 
 def create_app(test_config=None):
     # create and configure the application, directory will be relative to this file
@@ -41,6 +42,9 @@ def create_app(test_config=None):
 
     # import and register the auth blueprint
     from . import auth
+    from . import blog
+    
     app.register_blueprint(auth.bp)
-
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
     return app
