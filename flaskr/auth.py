@@ -1,6 +1,6 @@
 """
 a blueprint for the user authentication services, sets up
-routhing for the /register and /login url postfix
+routing for the /register and /login url postfix
 """
 import functools
 from flask import (
@@ -12,12 +12,16 @@ from flaskr.db import get_db
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 # associates the URL `/register` with the register view function below
-@bp.route('/register', methods=('GET', 'POST'))
+@bp.route('/', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
         # start validating the input
         username = request.form['username']
         password = request.form['password']
+        fullname = request.form['fullname']
+        email = request.form['email']
+        phonenum = request.form['phonenum']
+
         db = get_db()
         error = None
 
@@ -36,8 +40,8 @@ def register():
 
         if error is None:
             db.execute(
-                'INSERT INTO user (username, password) VALUES (?, ?)',
-                (username, generate_password_hash(password))
+                'INSERT INTO user (username, password, email, phonenum, fullname) VALUES (?, ?, ?, ?,?)',
+                (username, generate_password_hash(password), email, phonenum, fullname)
             )
             # this query modified data => use commit()
             db.commit()
@@ -83,8 +87,9 @@ def load_logged_in_user():
     if user_id is None:
         g.user = None
     else:
+        print(user_id)
         g.user = get_db().execute(
-            'SELECT * FROM user WHERE id = ?', (user_id)
+            'SELECT * FROM user WHERE id = ?', (str(user_id))
         ).fetchone()
 
 def login_required(view):
