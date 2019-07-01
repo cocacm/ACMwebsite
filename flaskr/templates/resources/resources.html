@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+{% endblock %}
+<h1>{% block title %}Resources{% endblock %}</h1>
+{% block content %}
+<main>
+    <section id="resources">
+        <div class="container-fluid">
+            <h2 class="section-title mb-2 h1"><b>Resources</b></h2>
+            <p class="text-center text-muted h5">A few handy links and stuff to check out!</p>
+            <div class="row mt-5">
+                <!--The numbers in the .col-sm-* classes indicates how many columns the div should span (out of 12). So, .col-sm-1 spans 1 column, .col-sm-4 spans 4 columns, .col-sm-6 spans 6 columns, etc.-->
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <i class="fab fa-github fa-5x" id="github"></i>
+                        <div class="card-block block-1">
+                            <h3 class="card-title">Github</h3>
+                            <p class="card-text">Check out our other projects!</p>
+                            <a href="https://github.com/cocacm" target="_blank" title="Read more" class="read-more" >Go now!<i class="fa fa-angle-double-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <i class="fab fa-discord fa-5x" id="discord"></i>
+                        <div class="card-block block-2">
+                            <h3 class="card-title">Discord</h3>
+                            <p class="card-text">Connect with us!</p>
+                            <a href="https://discord.gg/x2Ayqfx" target="_blank" title="Read more" class="read-more" >Go now!<i class="fa fa-angle-double-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <i class="fas fa-robot fa-5x" id="acm"></i>
+                        <div class="card-block block-3">
+                            <h3 class="card-title">ACM</h3>
+                            <p class="card-text">ACM's offical website</p>
+                            <a href="https://www.acm.org/" target="_blank" title="Read more" class="read-more" >Go now!<i class="fa fa-angle-double-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row justify-content-center">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <i class="fas fa-laptop-code fa-5x" id="practice"></i>
+                        <div class="card-block block-5">
+                            <h3 class="card-title">Coding Practice</h3>
+                            <p class="card-text">Put your CS knowledge to the test</p>
+                            <a href="{{ url_for('resources.practice') }}" target="_blank" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <i class="fas fa-book fa-5x" id="learning"></i>
+                        <div class="card-block block-4">
+                            <h3 class="card-title">Learning Resources</h3>
+                            <p class="card-text">Explore new CS topics</p>
+                            <a href="{{ url_for('resources.learning') }}" target="_blank" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!--More Categories if necessary
+                <!--<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <div class="card-block block-6">
+                            <h3 class="card-title">Special title</h3>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+</main>
+<!--Necessary to load Js elements
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+{% endblock %}
