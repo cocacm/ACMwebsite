@@ -43,8 +43,10 @@ def create_app(test_config=None):
     # import and register the auth blueprint
     from . import auth
     from . import blog
-    
+    from . import resources
+
     app.register_blueprint(auth.bp)
     app.register_blueprint(blog.bp)
+    app.register_blueprint(resources.bp)
     app.add_url_rule('/', endpoint='index')
     return app
