@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+{% endblock %}
+<h1>{% block title %}Coding Practice{% endblock %}</h1>
+{% block content %}
+<main>
+
+</main>
+{% endblock %}
