@@ -20,3 +20,7 @@ NOTE: SQLite is convenient because it doesn’t require setting up a separate da
 * defined and registered the functions for load_logged_in_user and logout
 * created `base.html` as the default html boiler code for each view
 * created `auth/register.html` and `auth/login.html` which extend `base.html`
+* added reference links for Bootstrap CSS elements to `base.html`
+* created blueprints for blog and resources pages
+* defined `/resources` and blog index page `/`
+* created `resources.html` view and added additional views for resources
